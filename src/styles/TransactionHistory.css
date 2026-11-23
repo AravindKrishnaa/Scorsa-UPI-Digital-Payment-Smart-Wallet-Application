@@ -1,0 +1,344 @@
+.history-container {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  border-radius: 24px;
+  box-shadow: 0 20px 36px rgba(15, 23, 42, 0.06);
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+html[data-theme='dark'] .history-container {
+  background: rgba(15, 23, 42, 0.92);
+  border-color: rgba(148, 163, 184, 0.14);
+  box-shadow: 0 20px 36px rgba(2, 6, 23, 0.42);
+}
+
+.history-header {
+  margin-bottom: 2rem;
+}
+
+.history-header h2 {
+  color: #1f2937;
+  font-size: 1.7rem;
+  margin-bottom: 1.3rem;
+  font-weight: 800;
+}
+
+html[data-theme='dark'] .history-header h2,
+html[data-theme='dark'] .tx-type,
+html[data-theme='dark'] .tx-desc,
+html[data-theme='dark'] .tx-datetime,
+html[data-theme='dark'] .stat-label,
+html[data-theme='dark'] .stat-amount {
+  color: #edf6ff;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  padding: 1.3rem 1rem;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  color: white;
+  box-shadow: 0 16px 24px rgba(15, 23, 42, 0.08);
+}
+
+.stat-card.sent {
+  background: linear-gradient(135deg, #f472b6 0%, #f43f5e 100%);
+}
+
+.stat-card.received {
+  background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 100%);
+}
+
+.stat-card.balance {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stat-amount {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.filters-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  border-radius: 14px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: rgba(248, 250, 252, 1);
+  color: #1f2937;
+  transition: all 0.25s ease;
+}
+
+html[data-theme='dark'] .search-input {
+  background: rgba(2, 6, 23, 0.8);
+  border-color: rgba(148, 163, 184, 0.2);
+  color: #e5eefb;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: rgba(79, 70, 229, 0.7);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+html[data-theme='dark'] .search-input:focus {
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.16);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background-color: rgba(255, 255, 255, 0.78);
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #475569;
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+  border-color: rgba(79, 70, 229, 0.6);
+  color: var(--primary);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 14px 22px rgba(79, 70, 229, 0.2);
+}
+
+.transactions-section {
+  margin-top: 2rem;
+}
+
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.transaction-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1rem 1.1rem 0.9rem;
+  background: linear-gradient(180deg, rgba(248, 250, 252, 1), rgba(241, 245, 249, 1));
+  border-radius: 18px;
+  border-left: 5px solid;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.08);
+}
+
+.transaction-card:hover {
+  background: #f8fafc;
+  transform: translateX(4px) translateY(-2px);
+  box-shadow: 0 18px 24px rgba(15, 23, 42, 0.07);
+}
+
+.transaction-card:active {
+  transform: translateX(2px);
+}
+
+.transaction-card.credit {
+  border-left-color: #10b981;
+}
+
+.transaction-card.debit {
+  border-left-color: #f43f5e;
+}
+
+.tx-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.86);
+  border-radius: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.05);
+}
+
+.tx-icon {
+  font-size: 1.6rem;
+}
+
+.tx-main-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.tx-party {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.tx-type {
+  font-weight: 800;
+  color: #1f2937;
+  font-size: 0.96rem;
+}
+
+.tx-desc {
+  color: #64748b;
+  font-size: 0.82rem;
+}
+
+.tx-datetime {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
+}
+
+.tx-amount-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.45rem;
+  flex-shrink: 0;
+}
+
+.tx-amount {
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.tx-amount.credit {
+  color: #10b981;
+}
+
+.tx-amount.debit {
+  color: #ef4444;
+}
+
+.tx-status {
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.26rem 0.6rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.tx-status.success {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #0f766e;
+}
+
+.tx-status.pending {
+  background-color: rgba(245, 158, 11, 0.12);
+  color: #b45309;
+}
+
+.transaction-card::after {
+  content: '›';
+  position: absolute;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: #94a3b8;
+  opacity: 0;
+  transition: all 0.25s ease;
+}
+
+.transaction-card:hover::after {
+  opacity: 1;
+  color: var(--primary);
+  transform: translateX(4px);
+}
+
+.no-transactions {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #64748b;
+  background: rgba(248, 250, 252, 0.8);
+  border-radius: 18px;
+}
+
+.no-transactions p {
+  font-size: 1.05rem;
+  margin: 0.5rem 0;
+}
+
+.no-transactions p:first-child {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.text-muted {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .history-container {
+    padding: 1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .transaction-card {
+    gap: 0.75rem;
+    padding: 1rem 0.9rem;
+    flex-wrap: wrap;
+  }
+
+  .tx-icon-wrapper {
+    width: 42px;
+    height: 42px;
+  }
+
+  .tx-icon {
+    font-size: 1.35rem;
+  }
+
+  .tx-amount {
+    font-size: 1rem;
+  }
+
+  .filter-buttons {
+    flex-direction: column;
+  }
+
+  .filter-btn {
+    flex: 1;
+  }
+}

@@ -1,0 +1,108 @@
+.landing-page {
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.landing-card {
+  width: min(680px, 100%);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  border-radius: 30px;
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.08);
+  padding: 3rem 2rem;
+  backdrop-filter: blur(12px);
+}
+
+html[data-theme='dark'] .landing-card {
+  background: rgba(15, 23, 42, 0.82);
+  border-color: rgba(148, 163, 184, 0.12);
+  box-shadow: 0 26px 60px rgba(2, 6, 23, 0.55);
+}
+
+.landing-logo {
+  width: 92px;
+  height: 92px;
+  border-radius: 28px;
+  display: block;
+  margin: 0 auto 1rem;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 35px rgba(79, 70, 229, 0.28);
+}
+
+.landing-kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.landing-card h1 {
+  margin-top: 1rem;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.08;
+  color: var(--text-main);
+}
+
+.landing-copy {
+  margin: 1rem auto 0;
+  max-width: 520px;
+  color: var(--text-soft);
+  font-size: 1.06rem;
+}
+
+.landing-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.primary-action,
+.secondary-action {
+  border: none;
+  border-radius: 16px;
+  padding: 1rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary-action {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  box-shadow: 0 14px 28px rgba(79, 70, 229, 0.25);
+}
+
+.secondary-action {
+  background: rgba(79, 70, 229, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(79, 70, 229, 0.1);
+}
+
+.primary-action:hover,
+.secondary-action:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .landing-card {
+    padding: 2.2rem 1.3rem;
+  }
+
+  .landing-actions {
+    flex-direction: column;
+  }
+
+  .primary-action,
+  .secondary-action {
+    width: 100%;
+  }
+}
